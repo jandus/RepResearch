@@ -1,8 +1,9 @@
 ---
 title: "Public health and economic problems caused by severe weather events"
-output: 
-  html_document:
-    keep_md: true
+author: "Alejandro Arellano"
+date: "31/01/2016"
+output: html_document
+keep_md: yes
 ---
 
 ## Introduction
@@ -58,7 +59,7 @@ sum(MostHarmful$HealthHarm)/sum(df_sum$HealthHarm)
 ```
 
 Top 5 is 81% of health harmfuly events. Therefore, we plot the information to verify it.
-```{r, echo=TRUE}
+```{r}
 MostHarmful$EVTYPE<-factor(MostHarmful$EVTYPE)
 
 ggplot(MostHarmful, aes(x = EVTYPE, y = HealthHarm)) + geom_bar(stat = "identity", fill="Skyblue", colour="Skyblue")+ labs(x= "Event") + labs(y= "Harm (total of fatalities and injuries)")
@@ -159,7 +160,7 @@ sum(MostCostly$DAMAGE)/sum(df_cost$DAMAGE)
 
 Top ten is 81% we use them and plot it.
 
-```{r, echo=TRUE}
+```{r, out.width= 800}
 MostHarmful$EVTYPE<-factor(MostHarmful$EVTYPE)
 ggplot(MostCostly, aes(x = EVTYPE, y = DAMAGE)) + geom_bar(stat = "identity", fill="Skyblue", colour="Skyblue") + theme(axis.text.x = element_text(angle = 90, hjust = 1))+ labs(x= "Event") + labs(y= "Economic Damage(Dollars)")
 ```
